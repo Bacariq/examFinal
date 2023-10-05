@@ -5,6 +5,7 @@ import com.example.myapplication.model.ApiMovies
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface HttpService {
@@ -16,8 +17,8 @@ interface HttpService {
         @Query("query") query: String
     ) :  Response<ApiMovies>
 
-    @GET("list.php?i=list")
-    suspend fun getSame(): Response<ApiMovies>
+    @GET("movie/{id}/similar?language=en-US&page=1")
+    suspend fun getSame(@Path("id") id: String): Response<ApiMovies>
 
     @GET("list.php?c=list")
     suspend fun getById(): Response<ApiMovie>

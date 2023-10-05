@@ -74,8 +74,8 @@ public class HttpServiceImp {
         )
     }
 
-    suspend fun getSame():  Response<ApiMovies> {
-        return retrofit().create(HttpService::class.java).getSame()
+    suspend fun getSame(id: String):  Response<ApiMovies> {
+        return retrofit().create(HttpService::class.java).getSame(id)
     }
     suspend fun getById():  Response<ApiMovie>{
         return retrofit().create(HttpService::class.java).getById()
