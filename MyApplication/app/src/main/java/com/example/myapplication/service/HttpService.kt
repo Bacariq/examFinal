@@ -18,7 +18,10 @@ interface HttpService {
     ) :  Response<ApiMovies>
 
     @GET("movie/{id}/similar?language=en-US&page=1")
-    suspend fun getSame(@Path("id") id: String): Response<ApiMovies>
+    suspend fun getSame(
+        @Header("Authorization") authorizationHeader: String,
+        @Path("id") id: String
+    ): Response<ApiMovies>
 
     @GET("list.php?c=list")
     suspend fun getById(): Response<ApiMovie>

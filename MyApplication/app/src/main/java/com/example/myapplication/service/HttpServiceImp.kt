@@ -67,15 +67,14 @@ public class HttpServiceImp {
     }
 
     //************************************************************************************* Activitées
+    private val myKey : String = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1OGExOGU0ZDk5YjhhNzNmZWMyODg5NDc5YjdmMDAxNSIsInN1YiI6IjVjNGFkOWE3OTI1MTQxMDVjMTUzZWViYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8339RuYRcAEJJ14GOqDxVdoTlxGpPXOX4r9zHYM05Wc"
+
     suspend fun getSearch(query : String):  Response<ApiMovies> {
-        return retrofit().create(HttpService::class.java).getSearch(
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1OGExOGU0ZDk5YjhhNzNmZWMyODg5NDc5YjdmMDAxNSIsInN1YiI6IjVjNGFkOWE3OTI1MTQxMDVjMTUzZWViYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8339RuYRcAEJJ14GOqDxVdoTlxGpPXOX4r9zHYM05Wc",
-            query
-        )
+        return retrofit().create(HttpService::class.java).getSearch(myKey,query)
     }
 
     suspend fun getSame(id: String):  Response<ApiMovies> {
-        return retrofit().create(HttpService::class.java).getSame(id)
+        return retrofit().create(HttpService::class.java).getSame(myKey,id)
     }
     suspend fun getById():  Response<ApiMovie>{
         return retrofit().create(HttpService::class.java).getById()
