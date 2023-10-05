@@ -2,7 +2,7 @@ package com.example.myapplication.model
 
 import com.google.gson.annotations.SerializedName
 
-class DataMovieList (
+class DataMovie (
     var id: String? = null,
     var title: String? = null,
     var release_date: String? = null,

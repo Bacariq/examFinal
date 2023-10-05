@@ -67,18 +67,18 @@ public class HttpServiceImp {
     }
 
     //************************************************************************************* Activitées
-    suspend fun getSearch(query : String):  Response<List<ApiMovies>> {
-        return retrofit().create(HttpServiceRandom::class.java).getSearch(
+    suspend fun getSearch(query : String):  Response<ApiMovies> {
+        return retrofit().create(HttpService::class.java).getSearch(
             "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1OGExOGU0ZDk5YjhhNzNmZWMyODg5NDc5YjdmMDAxNSIsInN1YiI6IjVjNGFkOWE3OTI1MTQxMDVjMTUzZWViYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8339RuYRcAEJJ14GOqDxVdoTlxGpPXOX4r9zHYM05Wc",
             query
         )
     }
 
-    suspend fun getSame():  Response<List<ApiMovies>> {
-        return retrofit().create(HttpServiceRandom::class.java).getSame()
+    suspend fun getSame():  Response<ApiMovies> {
+        return retrofit().create(HttpService::class.java).getSame()
     }
     suspend fun getById():  Response<ApiMovie>{
-        return retrofit().create(HttpServiceRandom::class.java).getById()
+        return retrofit().create(HttpService::class.java).getById()
     }
 
 }

@@ -3,27 +3,30 @@ package com.example.myapplication.framgment.ListMovieAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myapplication.R
-import com.example.myapplication.model.DataMovieList
+import com.example.myapplication.model.*
 
 
 class AdapterPage(
-    private val ItemsListe: MutableList<DataMovieList>,
+    private val ItemsListe: MutableList<DataMovie>,
     private val onLikeClickListener: OnLikeClickListener
-) : RecyclerView.Adapter<SortieListeViewHolder>() {
+) : RecyclerView.Adapter<ListeViewHolder>() {
 
     interface OnLikeClickListener {
-        fun onLikeClick(item: DataMovieList)
+        fun onLikeClick(item: DataMovie)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SortieListeViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListeViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.list_movie_cell, parent, false)
-        return SortieListeViewHolder(layout, onLikeClickListener)
+        return ListeViewHolder(layout, onLikeClickListener)
     }
 
-    override fun onBindViewHolder(holder: SortieListeViewHolder, position: Int) {
-        val item: DataMovieList = ItemsListe[position]
+    override fun onBindViewHolder(holder: ListeViewHolder, position: Int) {
+        val item: DataMovie = ItemsListe[position]
         holder.setupData(item)
     }
 
@@ -33,22 +36,27 @@ class AdapterPage(
 }
 
 
-class SortieListeViewHolder(
+class ListeViewHolder(
     private val view: View,
     private val onLikeClickListener: AdapterPage.OnLikeClickListener
 ) : RecyclerView.ViewHolder(view) {
 
-    //val Titre: TextView = view.findViewById(R.id.Page1CellText1)
-    //val Date: TextView = view.findViewById(R.id.Page1CellText2)
-    //val ImageSortie: ImageView = view.findViewById(R.id.Page1CellImage)
-    //val BtnOpen: ImageButton = view.findViewById(R.id.Page1CellBtnOpent)
+    val titre: TextView = view.findViewById(R.id.CellTitre)
+    val date: TextView = view.findViewById(R.id.CellDate)
+    val image: ImageView = view.findViewById(R.id.CellImage)
+    val rate: TextView = view.findViewById(R.id.CellRate)
 
-    fun setupData(item: DataMovieList) {
-        //Titre.text  = item.name
-        /*
-                BtnOpen.setOnClickListener {
-                    onLikeClickListener.onLikeClick("UPD", item)
-                }
-                */
+    fun setupData(item: DataMovie) {
+
+        titre.text = item.title
+        date.text = item.release_date
+        Glide.with(view)
+            .load(item.poster_path)
+            .into(image)
+        rate.text = item.vote_average
+
+        view.setOnClickListener {
+            onLikeClickListener.onLikeClick(item)
+        }
     }
 }
