@@ -8,5 +8,6 @@
 
     <item
         android:id="@+id/trendingFragment"
+        android:icon="@drawable/ico_trending"
         android:title="Trending" />
 </menu>

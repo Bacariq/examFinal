@@ -28,4 +28,9 @@
         android:name="com.example.myapplication.framgment.TrendingFragment"
         android:label="fragment_trending"
         tools:layout="@layout/fragment_trending" />
+    <fragment
+        android:id="@+id/rienFragment"
+        android:name="com.example.myapplication.framgment.RienFragment"
+        android:label="fragment_rien"
+        tools:layout="@layout/fragment_rien" />
 </navigation>
