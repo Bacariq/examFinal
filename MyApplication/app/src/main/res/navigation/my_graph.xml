@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/my_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_graph"
+    app:startDestination="@id/listMovieFragment">
 
+    <fragment
+        android:id="@+id/listMovieFragment"
+        android:name="com.example.myapplication.framgment.ListMovieFragment"
+        android:label="fragment_list_movie"
+        tools:layout="@layout/fragment_list_movie" >
+        <action
+            android:id="@+id/action_listMovieFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailMovieFragment"
+        android:name="com.example.myapplication.framgment.DetailMovieFragment"
+        android:label="fragment_detail_movie"
+        tools:layout="@layout/fragment_detail_movie" >
+        <argument
+            android:name="movieId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/trendingFragment"
+        android:name="com.example.myapplication.framgment.TrendingFragment"
+        android:label="fragment_trending"
+        tools:layout="@layout/fragment_trending" />
 </navigation>

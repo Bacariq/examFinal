@@ -61,14 +61,17 @@ public class HttpServiceImp {
 
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/")
+            .baseUrl("https://api.themoviedb.org/3/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
     //************************************************************************************* Activitées
-    suspend fun getSearch():  Response<List<ApiMovies>> {
-        return retrofit().create(HttpServiceRandom::class.java).getSearch()
+    suspend fun getSearch(query : String):  Response<List<ApiMovies>> {
+        return retrofit().create(HttpServiceRandom::class.java).getSearch(
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1OGExOGU0ZDk5YjhhNzNmZWMyODg5NDc5YjdmMDAxNSIsInN1YiI6IjVjNGFkOWE3OTI1MTQxMDVjMTUzZWViYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8339RuYRcAEJJ14GOqDxVdoTlxGpPXOX4r9zHYM05Wc",
+            query
+        )
     }
 
     suspend fun getSame():  Response<List<ApiMovies>> {

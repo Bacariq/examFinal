@@ -4,12 +4,17 @@ import com.example.myapplication.model.ApiMovie
 import com.example.myapplication.model.ApiMovies
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Query
 
 interface HttpServiceRandom {
     //************************************************************************************* get random
     //@Headers("Content-Type: application/json")
-    @GET("random.php")
-    suspend fun getSearch() :  Response<List<ApiMovies>>
+    @GET("search/movie?query=dune&include_adult=false&language=en-US&page=1")
+    suspend fun getSearch(
+        @Header("Authorization") authorizationHeader: String,
+        @Query("query") query: String
+    ) :  Response<List<ApiMovies>>
 
     @GET("list.php?i=list")
     suspend fun getSame(): Response<List<ApiMovies>>
