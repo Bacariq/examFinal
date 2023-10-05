@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
@@ -44,7 +45,8 @@ class ListMovieFragment() : Fragment(), AdapterPage.OnLikeClickListener {
     }
 
     override fun onLikeClick(item: DataMovie) {
-        TODO("Not yet implemented")
+        val action = ListMovieFragmentDirections.actionListMovieFragmentToDetailMovieFragment(item)
+        findNavController().navigate(action)
     }
 
 

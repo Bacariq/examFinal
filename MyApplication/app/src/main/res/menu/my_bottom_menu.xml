@@ -3,6 +3,7 @@
 
     <item
         android:id="@+id/listMovieFragment"
+        android:icon="@drawable/ico_search"
         android:title="Search" />
 
     <item

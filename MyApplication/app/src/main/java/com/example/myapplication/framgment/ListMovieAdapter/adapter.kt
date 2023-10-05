@@ -51,7 +51,7 @@ class ListeViewHolder(
         titre.text = item.title
         date.text = item.release_date
         Glide.with(view)
-            .load(item.poster_path)
+            .load("https://image.tmdb.org/t/p/original/"+item.poster_path)
             .into(image)
         rate.text = item.vote_average
 

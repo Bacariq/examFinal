@@ -20,8 +20,8 @@
         android:label="fragment_detail_movie"
         tools:layout="@layout/fragment_detail_movie" >
         <argument
-            android:name="movieId"
-            app:argType="string" />
+            android:name="myMovie"
+            app:argType="com.example.myapplication.model.DataMovie" />
     </fragment>
     <fragment
         android:id="@+id/trendingFragment"
