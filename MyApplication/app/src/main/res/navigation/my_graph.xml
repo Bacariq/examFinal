@@ -33,4 +33,9 @@
         android:name="com.example.myapplication.framgment.RienFragment"
         android:label="fragment_rien"
         tools:layout="@layout/fragment_rien" />
+    <fragment
+        android:id="@+id/favorisFragment"
+        android:name="com.example.myapplication.framgment.FavorisFragment"
+        android:label="fragment_favoris"
+        tools:layout="@layout/fragment_favoris" />
 </navigation>
