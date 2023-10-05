@@ -57,7 +57,6 @@ class ListMovieFragment() : Fragment(), AdapterPage.OnLikeClickListener {
             val response = httpService.getSearch(searchTxt)
             withContext(Dispatchers.Main) {
                 response.body()?.let { body ->
-                    Log.d("LM", "retrieveData")
                     updateDatas(Response = body)
                 }
             }

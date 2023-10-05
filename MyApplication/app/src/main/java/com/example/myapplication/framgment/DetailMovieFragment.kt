@@ -54,7 +54,7 @@ class DetailMovieFragment : Fragment() {
         binding.DetailTitre.text=dataMovie.title
 
         Glide.with(this)
-            .load("https://image.tmdb.org/t/p/original/"+dataMovie.poster_path)
+            .load("https://image.tmdb.org/t/p/original/"+dataMovie.backdrop_path)
             .into(binding.DetailImg1)
 
         Glide.with(this)

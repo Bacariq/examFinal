@@ -56,8 +56,9 @@ public class HttpServiceImp {
             callTimeout(60, TimeUnit.SECONDS)
             writeTimeout(60, TimeUnit.SECONDS)
             readTimeout(60, TimeUnit.SECONDS)
-            addInterceptor(LoggingInterceptor())
         }.build()
+
+        //addInterceptor(LoggingInterceptor())
 
         return Retrofit.Builder()
             .client(okHttpClient)
@@ -76,8 +77,8 @@ public class HttpServiceImp {
     suspend fun getSame(id: String):  Response<ApiMovies> {
         return retrofit().create(HttpService::class.java).getSame(myKey,id)
     }
-    suspend fun getById():  Response<ApiMovie>{
-        return retrofit().create(HttpService::class.java).getById()
+    suspend fun getTrending():  Response<ApiMovies>{
+        return retrofit().create(HttpService::class.java).getTrending(myKey)
     }
 
 }

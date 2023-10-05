@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface HttpService {
     //************************************************************************************* get random
     //@Headers("Content-Type: application/json")
-    @GET("search/movie?query=dune&include_adult=false&language=en-US&page=1")
+    @GET("search/movie")
     suspend fun getSearch(
         @Header("Authorization") authorizationHeader: String,
         @Query("query") query: String
@@ -23,6 +23,6 @@ interface HttpService {
         @Path("id") id: String
     ): Response<ApiMovies>
 
-    @GET("list.php?c=list")
-    suspend fun getById(): Response<ApiMovie>
+    @GET("trending/movie/day?language=en-US'")
+    suspend fun getTrending(@Header("Authorization") authorizationHeader: String): Response<ApiMovies>
 }

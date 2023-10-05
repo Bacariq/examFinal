@@ -54,18 +54,43 @@ class MainActivity : AppCompatActivity() {
                 R.id.listMovieFragment -> {
                     toolbar.isVisible = true;
                     bottomNav.isVisible = true;
+                    ShowHideElement("")
                 }
                 //api_key
                 R.id.detailMovieFragment -> {
-                    toolbar.isVisible = false;
-                    toolbar.title = "";
-                    //val customToolbarTitle = findViewById<TextView>(R.id.custom_toolbar_title)
-                    //customToolbarTitle.text = "Liste de : "
+                    toolbar.isVisible = true;
                     bottomNav.isVisible = true;
+                    ShowHideElement("Détail")
+
+                }
+                R.id.trendingFragment -> {
+                    toolbar.isVisible = true;
+                    bottomNav.isVisible = true;
+                    ShowHideElement("A l'affiche")
+
                 }
                 else -> toolbar.title = null
             }
         }
+    }
+
+
+    private fun ShowHideElement(titre : String){
+        var bShow : Boolean = true
+        var ActionTxtTitre = findViewById<TextView>(R.id.ActionTxtTitre)
+        var ActionTxtSearch = findViewById<TextView>(R.id.ActionTxtSearch)
+        var ActionBarBtnOk = findViewById<ImageButton>(R.id.ActionBarBtnOk)
+
+        if(titre == ""){
+            bShow = false
+        }else{
+            ActionTxtTitre.text = titre
+        }
+
+        ActionTxtTitre.isVisible = bShow
+        ActionTxtSearch.isVisible = !bShow
+        ActionBarBtnOk.isVisible = !bShow
+
     }
 
     override fun onSupportNavigateUp() : Boolean {

@@ -12,8 +12,10 @@ data class DataMovie (
     var release_date: String? = null,
     var vote_average: String? = null,
     var resume: String? = null,
+    var backdrop_path: String? = null,
     var poster_path: String? = null) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -29,6 +31,7 @@ data class DataMovie (
         parcel.writeString(release_date)
         parcel.writeString(vote_average)
         parcel.writeString(resume)
+        parcel.writeString(backdrop_path)
         parcel.writeString(poster_path)
     }
 

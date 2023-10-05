@@ -10,5 +10,7 @@ fun ApiMovie.ApiMovieToDataMovieList(): DataMovie {
     dataMovieList.vote_average = this.vote_average
     dataMovieList.resume = this.overview
     dataMovieList.poster_path = this.poster_path
+    dataMovieList.backdrop_path = this.backdrop_path
+
     return dataMovieList
 }
